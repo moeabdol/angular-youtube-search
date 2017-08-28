@@ -5,6 +5,7 @@ import { HttpModule } from "@angular/http";
 import { AppComponent } from "./app.component";
 import { SearchBoxComponent } from "./youtube-search/search-box/search-box.component";
 import { SearchResultComponent } from './youtube-search/search-result.component';
+import { YoutubeSearchComponent } from './youtube-search/youtube-search.component';
 
 import { YoutubeSearchService } from "./youtube-search/youtube-search.service";
 
@@ -12,7 +13,8 @@ import { YoutubeSearchService } from "./youtube-search/youtube-search.service";
   declarations: [
     AppComponent,
     SearchBoxComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    YoutubeSearchComponent
   ],
   imports: [
     BrowserModule,
