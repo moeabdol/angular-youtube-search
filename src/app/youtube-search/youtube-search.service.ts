@@ -36,7 +36,7 @@ export class YoutubeSearchService {
             id: item.id.videoId,
             title: item.snippet.title,
             description: item.snippet.description,
-            thumbnail: item.snippet.thumbnails.high.url
+            thumbnailUrl: item.snippet.thumbnails.high.url
           });
         });
       });

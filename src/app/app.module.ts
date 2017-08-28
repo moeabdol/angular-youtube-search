@@ -4,13 +4,15 @@ import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
 import { SearchBoxComponent } from "./youtube-search/search-box/search-box.component";
+import { SearchResultComponent } from './youtube-search/search-result.component';
 
 import { YoutubeSearchService } from "./youtube-search/youtube-search.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
