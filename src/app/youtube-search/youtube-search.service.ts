@@ -5,14 +5,18 @@ import "rxjs/add/operator/map";
 
 import { SearchResult } from "./search-result.model";
 
-const YOUTUBE_API_KEY = "AIzaSyDhtJsHY3SPMnh0waCsts0pYIuqJPbUSpc";
-const YOUTUBE_API_URL = "https://developers.google.com/youtube/v3/docs/search/list";
+export const YOUTUBE_API_KEY = "AIzaSyDhtJsHY3SPMnh0waCsts0pYIuqJPbUSpc";
+export const YOUTUBE_API_URL = "https://www.googleapis.com/youtube/v3/search";
 
 @Injectable()
 export class YoutubeSearchService {
-  constructor(private http: Http,
-    @Inject(YOUTUBE_API_KEY) private apiKey: string,
-    @Inject(YOUTUBE_API_URL) private apiUrl: string) { }
+  private apiKey: string;
+  private apiUrl: string;
+
+  constructor(private http: Http) {
+    this.apiKey = YOUTUBE_API_KEY;
+    this.apiUrl = YOUTUBE_API_URL;
+  }
 
   search(query: string): Observable<SearchResult[]> {
     const params: string = [
@@ -25,7 +29,8 @@ export class YoutubeSearchService {
     const queryUrl = `${this.apiUrl}?${params}`;
     return this.http.get(queryUrl)
       .map((response: Response) => {
-        return(<any>response.json()).items.map(item => {
+        console.log(response);
+        return (<any>response.json()).items.map(item => {
           console.log("raw item ", item);
           return new SearchResult({
             id: item.id.videoId,
